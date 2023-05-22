@@ -1,0 +1,99 @@
+:root {
+   --black: #18181a;
+   --white: #fdfdfb;
+   --primary: #145eee;
+   --grey: #737b8c;
+
+   --border: 1.5px solid #343442;
+}
+
+@import 'globals';
+
+nav {
+   border-right: var(--border);
+   height: 100vh;
+   .logo {
+      margin: 1rem 1rem 2rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      color: var(--white);
+      img {
+         width: 2rem;
+         height: 2rem;
+         background: var(--primary);
+         border-radius: 50%;
+      }
+      h1 {
+         text-transform: uppercase;
+         font-weight: 600;
+         letter-spacing: 2px;
+      }
+   }
+   .links {
+      margin: 0.75rem;
+      a {
+         display: flex;
+         align-items: center;
+         gap: 1rem;
+         margin-bottom: 1rem;
+         color: var(--grey);
+         width: 100%;
+         height: 2rem;
+         position: relative;
+         border-radius: 0.5rem;
+         padding: 1rem;
+         span {
+            margin-left: auto;
+            display: inline-flex;
+            align-items: center;
+            i{
+               font-size: 1.125rem;
+            }
+         }
+         &.active{
+            color: var(--primary);
+            filter: drop-shadow(0 0 0.5rem var(--primary));
+         }
+         cursor: pointer;
+         i {
+            font-size: 1rem;
+         }
+         h3 {
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: capitalize;
+         }
+      }
+      .dropdown {
+         > a {
+            margin-bottom: 0.25rem;
+            width: 100%;
+            background: #145eee25;
+            color: var(--primary);
+            filter: drop-shadow(0 0 0.5rem var(--primary));
+            &::before{
+               content: '';
+               position: absolute;
+               width: 0.25rem;
+               height: 65%;
+               left: 0;
+               border-radius: 0.25rem;
+               background: var(--primary);
+            }
+         }
+         a{
+            margin-bottom: 0.5rem;
+         }
+         &-link {
+            margin-left: 1rem;
+            margin-bottom: 2rem;
+         }
+      }
+   }
+   .controls{
+      @extend .links;
+      position: relative;
+      top: 4rem;
+   }
+}
