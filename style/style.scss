@@ -2,7 +2,7 @@
    --black: #18181a;
    --dark: hsl(240, 4%, 15%);
    --white: #fdfdfb;
-   --primary: #145eee;
+   --primary: hsl(225, 73%, 57%);
    --grey: #737b8c;
 
    --border: 1.5px solid #343442;
@@ -78,7 +78,7 @@ nav {
          > a {
             margin-bottom: 0.25rem;
             width: 100%;
-            background: #145eee25;
+            background: hsl(225, 73%, 57%, .25);
             color: var(--primary);
             filter: drop-shadow(0 0 0.5rem var(--primary));
             &::before {
@@ -137,9 +137,6 @@ main {
    }
 
    .top {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      column-gap: 1rem;
       margin-bottom: 2rem;
       .banner {
          position: relative;
@@ -236,6 +233,10 @@ main {
       align-items: center;
       justify-content: space-between;
       margin-bottom: 1rem;
+      h3{
+         font-size: 1rem;
+         font-weight: 500;
+      }
       span{
          align-items: center;
          display: inline-flex;
@@ -252,11 +253,14 @@ main {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0.75rem;
+      margin-bottom: 1.5rem;
       .game{
+         width: 100%;
          img{
             width: 100%;
+            height: 12.75rem;
             border-radius: 1rem;
-            object-fit: fill;
+            object-fit: cover;
          }
          .info{
             display: flex;
@@ -267,7 +271,60 @@ main {
       }
    }
 
-   .popular{
-      margin-bottom: 2rem;
+   .container{
+      grid-column: 1 / span 2;
+   }
+   .wishlist{
+      grid-template-columns: repeat(2, 1fr);
+   }
+
+   .friend{
+      padding: 1rem 1rem 3rem;
+      position: relative;
+      background: var(--dark);
+      border-radius: 1rem;
+      .profile{
+         img{
+            width: 2.5rem;
+         }
+         h3{
+            font-size: 1rem;
+            font-weight: 500;
+         }
+         p, span{
+            font-size: 0.85rem;
+         }
+         p{
+            color: var(--grey);
+         }
+         &.active{
+            p{
+               color: hsl(130, 90%, 30%);
+            }
+         }
+         &:not(:last-child){
+            margin-bottom: 1.5rem;
+         }
+         span{
+            color: var(--primary);
+            display: inline-block;
+            margin-left: auto;
+         }
+      }
+      .btn{
+         color: var(--primary);
+         border-top: 1px solid hsl(221, 10%, 50%, .25);
+         border-radius: 0;
+         width: 100%;
+         height: 3rem;
+         border-bottom-right-radius: 1rem;
+         border-bottom-left-radius: 1rem;
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         &:hover{
+            border: 1px solid hsl(225, 73%, 57%, .25);
+         }
+      }
    }
 }
